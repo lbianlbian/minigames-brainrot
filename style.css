@@ -1,0 +1,178 @@
+/* Reset and base styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+    background: linear-gradient(135deg, #f7b42c 0%, #fc575e 100%);
+    min-height: 100vh;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header {
+    width: 100%;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 24px 0 12px 0;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #3b185f;
+    margin-bottom: 10px;
+    border-radius: 0 0 24px 24px;
+  }
+
+  Absolutely! Here’s a complete, stylish HTML/CSS/JS page that meets your requirements:
+
+  Title: Memes Brainrot Minigames
+  
+  Dynamic Navigation Bar: Populated from a JS array (easy to modify)
+  
+  Minigame: Click the froggo.png image 100 times within 60 seconds to win
+  
+  Counter: Visible and updates with each click
+  
+  Styling: Modern, playful, and visually appealing
+  
+  xml
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Memes Brainrot Minigames</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      /* Reset and base styles */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+        background: linear-gradient(135deg, #f7b42c 0%, #fc575e 100%);
+        min-height: 100vh;
+        color: #222;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+  
+      header {
+        width: 100%;
+        background: rgba(255,255,255,0.8);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        padding: 24px 0 12px 0;
+        text-align: center;
+        font-size: 2.2rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: #3b185f;
+        margin-bottom: 10px;
+        border-radius: 0 0 24px 24px;
+      }
+  
+      nav {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 30px;
+        background: rgba(255,255,255,0.7);
+        padding: 10px 0;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+      }
+  
+      nav a {
+        color: #fc575e;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        padding: 8px 18px;
+        border-radius: 12px;
+        transition: background 0.2s, color 0.2s;
+      }
+  
+      nav a:hover {
+        background: #fc575e;
+        color: #fff;
+      }
+  
+
+  .game-container {
+    background: rgba(255,255,255,0.93);
+    padding: 32px 32px 24px 32px;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 320px;
+  }
+
+  .froggo-img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 2px 12px rgba(60, 60, 60, 0.09);
+    margin-bottom: 18px;
+    transition: transform 0.09s;
+    border: 4px solid #f7b42c;
+    background: #fff;
+  }
+
+  .froggo-img:active {
+    transform: scale(0.95) rotate(-5deg);
+    box-shadow: 0 1px 4px rgba(60,60,60,0.07);
+  }
+
+  .counter {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fc575e;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #f7b42c55;
+  }
+
+  .timer {
+    font-size: 1.3rem;
+    color: #3b185f;
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+
+  .win-message {
+    font-size: 2rem;
+    color: #27ae60;
+    font-weight: bold;
+    margin-top: 18px;
+    animation: pop 0.7s;
+  }
+
+  @keyframes pop {
+    0% { transform: scale(0.7); opacity: 0.2;}
+    80% { transform: scale(1.1);}
+    100% { transform: scale(1); opacity: 1;}
+  }
+
+  .play-btn {
+    margin-top: 22px;
+    background: #fc575e;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    padding: 10px 28px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+    box-shadow: 0 1px 4px rgba(252,87,94,0.12);
+  }
+  .play-btn:hover {
+    background: #f7b42c;
+    color: #3b185f;
+  }

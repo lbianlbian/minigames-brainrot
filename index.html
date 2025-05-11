@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Memes Brainrot Minigames</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>Memes Brainrot Minigames</header>
+  <nav id="navbar"> </nav>
+  
+
+  <main>
+    <div class="game-container">
+      <div class="counter" id="counter"></div>
+      <div class="timer" id="timer">Time left: 60s</div>
+      <img src="froggo.jpg" alt="Froggo" class="froggo-img" id="froggo">
+      <div class="win-message" id="win-message">Click Froggo <b id="winClick"></b> times in a minute to win a Froggo NFT! </div>
+      <button class="play-btn" id="play-btn" >Play</button>
+    </div>
+  </main>
+
+  <script>
+    const WIN_CLICKS = 10;
+    window.onload = function(){
+        document.getElementById("counter").innerHTML = `0 / ${WIN_CLICKS}`;
+        document.getElementById("winClick").innerHTML = WIN_CLICKS;
+    }
+    // Dynamic navigation bar links
+    const navLinks = [
+      { text: "Froggo", href: "#" },
+      { text: "Memes Brainrot", href: "https://www.memesbrainrot.com" },
+      { text: "Coming soon!", href: "#" }
+    ];
+    const navbar = document.getElementById('navbar');
+    navLinks.forEach(link => {
+      const a = document.createElement('a');
+      a.textContent = link.text;
+      a.href = link.href;
+      navbar.appendChild(a);
+    });
+
+    // Minigame logic
+    const froggo = document.getElementById('froggo');
+    const counter = document.getElementById('counter');
+    const timer = document.getElementById('timer');
+    const winMsg = document.getElementById('win-message');
+    const playBtn = document.getElementById('play-btn');
+
+    let clickCount = 0;
+    let timeLeft = 60;
+    let gameActive = false;
+    let timerInterval = null;
+
+    function startGame() {
+      clickCount = 0;
+      timeLeft = 60;
+      gameActive = true;
+      counter.textContent = `${clickCount} / ${WIN_CLICKS}`;
+      timer.textContent = `Time left: ${timeLeft}s`;
+      winMsg.style.display = 'none';
+      playBtn.style.display = 'none';
+      froggo.style.pointerEvents = 'auto';
+      froggo.style.opacity = '1.0';
+
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        timer.textContent = `Time left: ${timeLeft}s`;
+        if (timeLeft <= 0) {
+          endGame(false);
+        }
+      }, 1000);
+    }
+
+    function endGame(win) {
+      gameActive = false;
+      froggo.style.pointerEvents = 'none';
+      froggo.style.opacity = '0.65';
+      clearInterval(timerInterval);
+      if (win) {
+        winMsg.textContent = "🎉 You win! 🎉";
+        winMsg.style.color = "#27ae60";
+        winMsg.style.display = 'block';
+      } else {
+        winMsg.textContent = "😢 Time's up! Try again!";
+        winMsg.style.color = "#fc575e";
+        winMsg.style.display = 'block';
+      }
+      playBtn.setAttribute("style", "display:visible;");
+    }
+
+    froggo.addEventListener('click', () => {
+      if (!gameActive) return;
+      clickCount++;
+      counter.textContent = `${clickCount} / ${WIN_CLICKS}`;
+      if (clickCount >= WIN_CLICKS) {
+        endGame(true);
+      }
+    });
+
+    playBtn.addEventListener('click', startGame);
+
+  </script>
+</body>
+</html>
